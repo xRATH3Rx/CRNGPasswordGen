@@ -113,14 +113,14 @@ static void print_usage(const char* argv0) {
     std::cerr <<
         "Usage: " << argv0 << " [options]\n"
         "Options:\n"
-        "  -n <N>          Number of passwords (default 1)\n"
+        "  -n <N>          Number of passwords (default 10)\n"
         "  -l <L>          Password length (>=16, default 16)\n"
         "  --specials s    Override special characters set\n"
         "  --nospecial     Exclude special characters entirely\n"
         "  -txt <file>     Save passwords to a .txt file (one per line)\n"
         "  -csv <file>     Save passwords to a CSV (Excel-friendly, numbered)\n"
         "  -q              Quiet mode (only print passwords to stdout)\n"
-        "  -h              Show help\n";
+        "  --h             Show help\n";
 }
 
 static bool parse_size_t(const std::string& s, size_t& out) {
@@ -138,7 +138,7 @@ static Options parse_args(int argc, char** argv) {
     Options opt;
     for (int i = 1; i < argc; ++i) {
         std::string a = argv[i];
-        if (a == "-h") {
+        if (a == "--h") {
             print_usage(argv[0]);
             std::exit(0);
         }

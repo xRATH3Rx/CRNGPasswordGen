@@ -48,6 +48,7 @@ choco install openssl
 ---
 
 ## Build
+- [Linux build instructions](LINUX_BUILD.md)
 
 ### MSVC (Developer Command Prompt)
 ```
@@ -73,14 +74,14 @@ g++ -std=c++17 pwtool.cpp -lcrypto -o pwtool.exe
 pwtool [options]
 
 Options:
-  -n <N>          Number of passwords (default 1)
+  -n <N>          Number of passwords (default 10)
   -l <L>          Password length (>=16, default 16)
   --specials s    Override special characters set
   --nospecial     Exclude special characters entirely
   -txt <file>     Save passwords to a .txt file (one per line)
   -csv <file>     Save passwords to a CSV (Excel-friendly, numbered)
   -q              Quiet mode (only print passwords to stdout)
-  -h              Show help
+  --h              Show help
 ```
 
 > The tool guarantees at least two characters from each selected category (U/L/D and, unless `--nospecial`, specials). The remainder is filled from the union and shuffled.
